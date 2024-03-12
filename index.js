@@ -31,6 +31,11 @@ async function run() {
 
 
 
+    app.post('/user',(req,res)=>{
+      const user=req.body;
+      console.log(user);
+    })
+
 
 
 
