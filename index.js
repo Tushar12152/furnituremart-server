@@ -31,6 +31,7 @@ async function run() {
 
 
     const usersCollection = client.db("Furniture-Db").collection("user");
+    const productsCollection = client.db("Furniture-Db").collection("products");
 
 
 
@@ -45,6 +46,16 @@ async function run() {
     app.get('/users', async (req,res)=>{
        const result=await usersCollection.find().toArray()
        res.send(result)
+    })
+
+
+    //products
+
+    app.post('/product',async (req,res)=>{
+         const product= req.body;
+         const result= await productsCollection.insertOne(product);
+         res.send(result)
+
     })
 
 
